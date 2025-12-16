@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="YThingsCalculatorCore/YThingsCalculatorCore.csproj" />
+  <Project Path="YThingsCalculatorForm/YThingsCalculatorForm.csproj" />
+</Solution>
