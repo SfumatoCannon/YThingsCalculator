@@ -7,6 +7,7 @@ namespace YThingsCalculatorCore
     public class InputFormatYAlignAdjust
     {
         float StartY { get; set; }
+        int FloorY { get; set; }
         float TargetYRangeLeft { get; set; }
         float TargetYRangeRight { get; set; }
 
@@ -17,6 +18,7 @@ namespace YThingsCalculatorCore
             Deadly
         };
         HeightLimitType HeightLimit { get; set; }
+        int HeightLimitY { get; set; }
 
         enum SearchStrategyType
         {
