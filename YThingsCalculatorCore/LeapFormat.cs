@@ -8,6 +8,8 @@ namespace YThingsCalculatorCore
         public List<int> JumpPauseList { get; set; } = [1]; // JumpPauseList[0] is always 1
                                                             // JumpPauseList[i] start from 1
         public int JumpCount { get { return JumpDetailList.Count; } }
+        public LeapFormat() { }
+        public LeapFormat(string leapFormatString) { SetFromString(leapFormatString); }
         public void SetFromString(string leapFormatString)
         {
             JumpDetailList.Clear();

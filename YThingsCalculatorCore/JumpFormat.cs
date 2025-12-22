@@ -6,6 +6,8 @@ namespace YThingsCalculatorCore
     {
         public bool IsJumped { get; set; }
         public List<int> CancelFrameList { get; set; } = [];
+        public JumpFormat() { }
+        public JumpFormat(string jumpFormatString) { SetFromString(jumpFormatString); }
         public void SetFromString(string jumpFormatString)
         {
             string[] cancelFrameElementStrings = jumpFormatString.Split('+');
