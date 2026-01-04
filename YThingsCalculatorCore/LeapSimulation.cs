@@ -16,7 +16,27 @@ namespace YThingsCalculatorCore
         }
         static List<float> GetFrameYList(float startY, LeapFormat leap, int endFloorY)
         {
-            return new List<float>(); // WIP
+            List<float> frameYList = new List<float>();
+            float currentY = startY;
+            float currentVspeed = 0.0f;
+            frameYList.Add(currentY);
+            int jumpCount = leap.JumpCount;
+            for (int i = 0; i < jumpCount; i++)
+            {
+                for (int j = 0; j < leap.JumpPauseList[i] - 1; j++)
+                {
+                    currentVspeed += MotionParameter.Gravity;
+                    currentY += currentVspeed;
+                    frameYList.Add(currentY);
+                }
+                JumpFormat currentJump = leap.JumpDetailList[i];
+                if (currentJump.Type == JumpFormat.JumpType.Jump1)
+                    currentVspeed = -MotionParameter.JumpSpeed1;
+                else
+                    currentVspeed = -MotionParameter.JumpSpeed2;
+                // WIP
+            }
+            return frameYList;
         }
         static List<float> GetFrameYList(float startY, LeapFormat leap, int endFloorY, int blockY1, int blockY2)
         {

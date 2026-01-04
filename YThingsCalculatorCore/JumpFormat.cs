@@ -4,11 +4,22 @@ namespace YThingsCalculatorCore
 {
     public class JumpFormat
     {
-        public bool IsJumped { get; set; }
+        public enum JumpType
+        {
+            Jump1,
+            Jump2
+        };
+        public JumpType Type { get; set; } = JumpType.Jump1;
+        public bool IsJumped { get; set; } = false;
         public List<int> CancelFrameList { get; set; } = [];
+        public bool IsFullJump { get { return IsJumped && CancelFrameList.Count == 0; } }
+        public bool IsNormalJump { get { return IsJumped && CancelFrameList.Count <= 1; } }
+        public bool IsAdvancedJump { get { return IsJumped && CancelFrameList.Count >= 2; } }
+        public bool IsJumpCancel { get { return IsAdvancedJump && CancelFrameList[0] == 1; } }
+        public bool IsCactus { get { return IsAdvancedJump && CancelFrameList[0] >= 2; } }
         public JumpFormat() { }
         public JumpFormat(string jumpFormatString) { SetFromString(jumpFormatString); }
-        public void SetFromString(string jumpFormatString)
+        public void SetFromString(string jumpFormatString, JumpType jumpType = JumpType.Jump1)
         {
             string[] cancelFrameElementStrings = jumpFormatString.Split('+');
             CancelFrameList.Clear();
@@ -21,17 +32,20 @@ namespace YThingsCalculatorCore
                 }
                 else
                 {
+                    IsJumped = false;
+                    CancelFrameList.Clear();
                     throw new FormatException($"Invalid format: '{i}' is not a valid integer.");
                 }
             }
-            if (CancelFrameList.Count == 1 && CancelFrameList[0] == 23)
+            IsJumped = true;
+            Type = jumpType;
+            if (CancelFrameList.Count == 1)
             {
-                IsJumped = false;
-                CancelFrameList.Clear();
-            }
-            else
-            {
-                IsJumped = true;
+                if ((CancelFrameList[0] == 23 && jumpType == JumpType.Jump1)
+                    || (CancelFrameList[0] == 19 && jumpType == JumpType.Jump2))
+                {
+                    CancelFrameList.Clear();
+                }
             }
         }
         public string GetJumpExpression()
@@ -66,10 +80,5 @@ namespace YThingsCalculatorCore
                 return 0;
             return GetCancelFrameTick(CancelFrameList.Count - 1);
         }
-        public bool IsFullJump { get { return IsJumped && CancelFrameList.Count == 0; } }
-        public bool IsNormalJump { get { return IsJumped && CancelFrameList.Count <= 1; } }
-        public bool IsAdvancedJump { get { return IsJumped && CancelFrameList.Count >= 2; } }
-        public bool IsJumpCancel { get { return IsAdvancedJump && CancelFrameList[0] == 1; } }
-        public bool IsCactus { get { return IsAdvancedJump && CancelFrameList[0] >= 2; } }
     }
 }
