@@ -21,6 +21,13 @@ namespace YAlignCalculator
             textBoxStartY.Text = ((double)407.4f).ToString("R");
             textBoxTargetYLeft.Text = ((double)407.1f).ToString("R");
             textBoxTargetYRight.Text = ((double)407.2f).ToString("R");
+            var leap = new YThingsCalculatorCore.LeapFormat("5");
+            var list = YThingsCalculatorCore.LeapSimulation.GetFrameYList(
+                407.4f,
+                leap,
+                407);
+            richTextBoxResult.Text = string.Join("\n", list.Select(v => ((double)v).ToString("R")));
+            //Console.WriteLine(string.Join(", ", list.Select(v => v.ToString("R"))));
         }
 
         private void radioButtonLimitSolid_Click(object sender, EventArgs e)
