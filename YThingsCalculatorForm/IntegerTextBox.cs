@@ -12,6 +12,22 @@ namespace YAlignCalculator
 {
     public class IntegerTextBox : TextBox
     {
+        private int minValue = 21;
+
+        [DefaultValue(21)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        [Description("可允许的最小值。不会阻止用户输入更小的值，但此时文字会变红。")]
+        public int MinValue
+        {
+            get => minValue; 
+            set => minValue = value;
+        }
+
+        public void ResetMinValue()
+        {
+            MinValue = 21;
+        }
+
         public IntegerTextBox()
         {
             this.Validated += IntegerTextBox_Validated;
@@ -28,7 +44,7 @@ namespace YAlignCalculator
             else
             {
                 this.Text = (Math.Round(value)).ToString();
-                if (Math.Round(value) < 21)
+                if (Math.Round(value) < MinValue)
                     this.ForeColor = Color.Red;
                 else
                     this.ForeColor = Color.Black;
