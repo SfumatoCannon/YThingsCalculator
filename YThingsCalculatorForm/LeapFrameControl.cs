@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using YThingsCalculatorCore;
 
 namespace YThingsCalculatorForm
 {
@@ -13,6 +14,7 @@ namespace YThingsCalculatorForm
         public LeapFrameControl()
         {
             InitializeComponent();
+            textBoxStartY.Text = ((double)407.4f).ToString("R");
         }
 
         private void checkBoxLandingY_CheckedChanged(object sender, EventArgs e)
@@ -29,6 +31,18 @@ namespace YThingsCalculatorForm
             {
                 integerTextBoxLandingY.Enabled = false;
                 integerTextBoxLandingY.Text = "";
+            }
+        }
+
+        private void textBoxLeapInput_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                LeapFormat leapFormat = new LeapFormat(textBoxLeapInput.Text);
+            }
+            catch (FormatException ex)
+            {
+                // string errorMessage = ex.Message;
             }
         }
     }
