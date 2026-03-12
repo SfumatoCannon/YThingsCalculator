@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
+            tableLayoutPanel4 = new TableLayoutPanel();
+            label2 = new Label();
+            textBoxLeapInput = new TextBox();
             tableLayoutPanel3 = new TableLayoutPanel();
-            radioButtonLandingY = new RadioButton();
-            textBoxLandingY = new YAlignCalculator.FloatStepperTextBox();
+            integerTextBoxLandingY = new YAlignCalculator.IntegerTextBox();
+            checkBoxLandingY = new CheckBox();
             tableLayoutPanel2 = new TableLayoutPanel();
             label1 = new Label();
             textBoxStartY = new YAlignCalculator.FloatStepperTextBox();
             richTextBox1 = new RichTextBox();
             buttonRefresh = new Button();
-            tableLayoutPanel4 = new TableLayoutPanel();
-            label2 = new Label();
-            textBoxLeapInput = new TextBox();
             labelLeapExplain = new Label();
             tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
-            tableLayoutPanel4.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -62,7 +62,7 @@
             tableLayoutPanel1.Controls.Add(labelLeapExplain, 0, 4);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Margin = new Padding(5, 5, 5, 5);
+            tableLayoutPanel1.Margin = new Padding(5);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 7;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 13.7489328F));
@@ -75,6 +75,44 @@
             tableLayoutPanel1.Size = new Size(1375, 998);
             tableLayoutPanel1.TabIndex = 1;
             // 
+            // tableLayoutPanel4
+            // 
+            tableLayoutPanel4.AutoSize = true;
+            tableLayoutPanel4.ColumnCount = 2;
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 187F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel4.Controls.Add(label2, 0, 0);
+            tableLayoutPanel4.Controls.Add(textBoxLeapInput, 1, 0);
+            tableLayoutPanel4.Dock = DockStyle.Fill;
+            tableLayoutPanel4.Location = new Point(5, 224);
+            tableLayoutPanel4.Margin = new Padding(5);
+            tableLayoutPanel4.Name = "tableLayoutPanel4";
+            tableLayoutPanel4.RowCount = 1;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 59F));
+            tableLayoutPanel4.Size = new Size(509, 257);
+            tableLayoutPanel4.TabIndex = 6;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.Location = new Point(33, 226);
+            label2.Margin = new Padding(5, 0, 5, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(149, 31);
+            label2.TabIndex = 0;
+            label2.Text = "Leap String:";
+            label2.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // textBoxLeapInput
+            // 
+            textBoxLeapInput.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxLeapInput.Location = new Point(190, 216);
+            textBoxLeapInput.Name = "textBoxLeapInput";
+            textBoxLeapInput.Size = new Size(316, 38);
+            textBoxLeapInput.TabIndex = 1;
+            // 
             // tableLayoutPanel3
             // 
             tableLayoutPanel3.AutoSize = true;
@@ -83,42 +121,40 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 25F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 25F));
-            tableLayoutPanel3.Controls.Add(radioButtonLandingY, 0, 0);
-            tableLayoutPanel3.Controls.Add(textBoxLandingY, 1, 0);
+            tableLayoutPanel3.Controls.Add(integerTextBoxLandingY, 1, 0);
+            tableLayoutPanel3.Controls.Add(checkBoxLandingY, 0, 0);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(5, 170);
-            tableLayoutPanel3.Margin = new Padding(5, 5, 5, 5);
+            tableLayoutPanel3.Margin = new Padding(5);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 59F));
-            tableLayoutPanel3.Size = new Size(509, 48);
+            tableLayoutPanel3.Size = new Size(509, 44);
             tableLayoutPanel3.TabIndex = 1;
             // 
-            // radioButtonLandingY
+            // integerTextBoxLandingY
             // 
-            radioButtonLandingY.Anchor = AnchorStyles.Right;
-            radioButtonLandingY.AutoCheck = false;
-            radioButtonLandingY.AutoSize = true;
-            radioButtonLandingY.Location = new Point(19, 6);
-            radioButtonLandingY.Margin = new Padding(5, 5, 5, 5);
-            radioButtonLandingY.Name = "radioButtonLandingY";
-            radioButtonLandingY.Size = new Size(163, 35);
-            radioButtonLandingY.TabIndex = 3;
-            radioButtonLandingY.TabStop = true;
-            radioButtonLandingY.Text = "Landing Y:";
-            radioButtonLandingY.TextAlign = ContentAlignment.MiddleRight;
-            radioButtonLandingY.UseVisualStyleBackColor = true;
+            integerTextBoxLandingY.Anchor = AnchorStyles.Left;
+            integerTextBoxLandingY.Enabled = false;
+            integerTextBoxLandingY.ForeColor = Color.Black;
+            integerTextBoxLandingY.Location = new Point(190, 3);
+            integerTextBoxLandingY.MinValue = 0;
+            integerTextBoxLandingY.Name = "integerTextBoxLandingY";
+            integerTextBoxLandingY.Size = new Size(100, 38);
+            integerTextBoxLandingY.TabIndex = 4;
             // 
-            // textBoxLandingY
+            // checkBoxLandingY
             // 
-            textBoxLandingY.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            textBoxLandingY.ForeColor = Color.Black;
-            textBoxLandingY.Location = new Point(192, 5);
-            textBoxLandingY.Margin = new Padding(5, 5, 5, 5);
-            textBoxLandingY.Name = "textBoxLandingY";
-            textBoxLandingY.Size = new Size(312, 38);
-            textBoxLandingY.TabIndex = 2;
+            checkBoxLandingY.Anchor = AnchorStyles.Right;
+            checkBoxLandingY.AutoSize = true;
+            checkBoxLandingY.Location = new Point(20, 4);
+            checkBoxLandingY.Name = "checkBoxLandingY";
+            checkBoxLandingY.Size = new Size(164, 35);
+            checkBoxLandingY.TabIndex = 8;
+            checkBoxLandingY.Text = "Landing Y:";
+            checkBoxLandingY.UseVisualStyleBackColor = true;
+            checkBoxLandingY.CheckedChanged += checkBoxLandingY_CheckedChanged;
             // 
             // tableLayoutPanel2
             // 
@@ -130,7 +166,7 @@
             tableLayoutPanel2.Controls.Add(textBoxStartY, 1, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(5, 112);
-            tableLayoutPanel2.Margin = new Padding(5, 5, 5, 5);
+            tableLayoutPanel2.Margin = new Padding(5);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
@@ -155,7 +191,7 @@
             textBoxStartY.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             textBoxStartY.ForeColor = Color.Black;
             textBoxStartY.Location = new Point(192, 5);
-            textBoxStartY.Margin = new Padding(5, 5, 5, 5);
+            textBoxStartY.Margin = new Padding(5);
             textBoxStartY.Name = "textBoxStartY";
             textBoxStartY.Size = new Size(312, 38);
             textBoxStartY.TabIndex = 1;
@@ -166,66 +202,28 @@
             richTextBox1.Location = new Point(560, 110);
             richTextBox1.Name = "richTextBox1";
             tableLayoutPanel1.SetRowSpan(richTextBox1, 4);
-            richTextBox1.Size = new Size(773, 642);
+            richTextBox1.Size = new Size(773, 640);
             richTextBox1.TabIndex = 4;
             richTextBox1.Text = "";
             // 
             // buttonRefresh
             // 
             buttonRefresh.Anchor = AnchorStyles.Right;
-            buttonRefresh.Location = new Point(1183, 783);
+            buttonRefresh.Location = new Point(1183, 781);
             buttonRefresh.Name = "buttonRefresh";
             buttonRefresh.Size = new Size(150, 46);
             buttonRefresh.TabIndex = 5;
             buttonRefresh.Text = "Refresh";
             buttonRefresh.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel4
-            // 
-            tableLayoutPanel4.AutoSize = true;
-            tableLayoutPanel4.ColumnCount = 2;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 187F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.Controls.Add(label2, 0, 0);
-            tableLayoutPanel4.Controls.Add(textBoxLeapInput, 1, 0);
-            tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(5, 228);
-            tableLayoutPanel4.Margin = new Padding(5);
-            tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.RowCount = 1;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 59F));
-            tableLayoutPanel4.Size = new Size(509, 256);
-            tableLayoutPanel4.TabIndex = 6;
-            // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            label2.AutoSize = true;
-            label2.Location = new Point(33, 225);
-            label2.Margin = new Padding(5, 0, 5, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(149, 31);
-            label2.TabIndex = 0;
-            label2.Text = "Leap String:";
-            label2.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // textBoxLeapInput
-            // 
-            textBoxLeapInput.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxLeapInput.Location = new Point(190, 215);
-            textBoxLeapInput.Name = "textBoxLeapInput";
-            textBoxLeapInput.Size = new Size(316, 38);
-            textBoxLeapInput.TabIndex = 1;
-            // 
             // labelLeapExplain
             // 
             labelLeapExplain.AutoSize = true;
             labelLeapExplain.Dock = DockStyle.Fill;
             labelLeapExplain.ForeColor = SystemColors.ControlDark;
-            labelLeapExplain.Location = new Point(3, 489);
+            labelLeapExplain.Location = new Point(3, 486);
             labelLeapExplain.Name = "labelLeapExplain";
-            labelLeapExplain.Size = new Size(513, 266);
+            labelLeapExplain.Size = new Size(513, 267);
             labelLeapExplain.TabIndex = 7;
             labelLeapExplain.Text = "jump1:\r\npause:\r\njump2:";
             labelLeapExplain.TextAlign = ContentAlignment.TopRight;
@@ -235,17 +233,17 @@
             AutoScaleDimensions = new SizeF(14F, 31F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tableLayoutPanel1);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "LeapFrameControl";
             Size = new Size(1375, 998);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            tableLayoutPanel4.ResumeLayout(false);
+            tableLayoutPanel4.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
-            tableLayoutPanel4.ResumeLayout(false);
-            tableLayoutPanel4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -257,8 +255,6 @@
         private RadioButton radioButtonStrategyEasiest;
         private Label label6;
         private TableLayoutPanel tableLayoutPanel3;
-        private RadioButton radioButtonLandingY;
-        private YAlignCalculator.FloatStepperTextBox textBoxLandingY;
         private TableLayoutPanel tableLayoutPanel2;
         private Label label1;
         private YAlignCalculator.FloatStepperTextBox textBoxStartY;
@@ -278,5 +274,7 @@
         private Label label2;
         private TextBox textBoxLeapInput;
         private Label labelLeapExplain;
+        private YAlignCalculator.IntegerTextBox integerTextBoxLandingY;
+        private CheckBox checkBoxLandingY;
     }
 }

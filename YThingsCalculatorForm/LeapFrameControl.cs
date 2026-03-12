@@ -14,5 +14,22 @@ namespace YThingsCalculatorForm
         {
             InitializeComponent();
         }
+
+        private void checkBoxLandingY_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxLandingY.Checked)
+            {
+                integerTextBoxLandingY.Enabled = true;
+                if (double.TryParse(textBoxStartY.Text, out double startY))
+                {
+                    integerTextBoxLandingY.Text = ((int)Math.Round(startY)).ToString();
+                }
+            }
+            else
+            {
+                integerTextBoxLandingY.Enabled = false;
+                integerTextBoxLandingY.Text = "";
+            }
+        }
     }
 }
