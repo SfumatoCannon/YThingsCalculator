@@ -317,6 +317,7 @@
             radioButtonLimitDeadly.TabStop = true;
             radioButtonLimitDeadly.Text = "Deadly";
             radioButtonLimitDeadly.UseVisualStyleBackColor = true;
+            radioButtonLimitDeadly.Click += radioButtonLimitDeadly_Click;
             // 
             // radioButtonLimitSolid
             // 
@@ -331,6 +332,7 @@
             radioButtonLimitSolid.TabStop = true;
             radioButtonLimitSolid.Text = "Solid";
             radioButtonLimitSolid.UseVisualStyleBackColor = true;
+            radioButtonLimitSolid.Click += radioButtonLimitSolid_Click;
             // 
             // label4
             // 
@@ -407,6 +409,7 @@
             buttonYAlignSearch.TabIndex = 4;
             buttonYAlignSearch.Text = "Search →";
             buttonYAlignSearch.UseVisualStyleBackColor = true;
+            buttonYAlignSearch.Click += buttonYAlignSearch_Click;
             // 
             // buttonYAlignCancel
             // 
@@ -422,6 +425,7 @@
             buttonYAlignCancel.Text = "Cancel";
             buttonYAlignCancel.UseVisualStyleBackColor = true;
             buttonYAlignCancel.Visible = false;
+            buttonYAlignCancel.Click += buttonYAlignCancel_Click;
             // 
             // checkBoxCactus
             // 
@@ -458,6 +462,7 @@
             checkBoxPlatformLanding.TabIndex = 8;
             checkBoxPlatformLanding.Text = "Platform landing";
             checkBoxPlatformLanding.UseVisualStyleBackColor = true;
+            checkBoxPlatformLanding.Click += checkBoxPlatformLanding_CheckedChanged;
             // 
             // checkBoxSingleJumpOnly
             // 
@@ -485,6 +490,7 @@
             checkBoxNoBunnyHop.TabIndex = 10;
             checkBoxNoBunnyHop.Text = "No bunny-hop";
             checkBoxNoBunnyHop.UseVisualStyleBackColor = true;
+            checkBoxNoBunnyHop.Click += checkBoxNoBunnyHop_CheckedChanged;
             // 
             // tableLayoutPanel7
             // 
