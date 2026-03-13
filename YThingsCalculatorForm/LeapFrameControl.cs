@@ -36,9 +36,36 @@ namespace YThingsCalculatorForm
 
         private void textBoxLeapInput_TextChanged(object sender, EventArgs e)
         {
+            if (textBoxStartY.ForeColor == Color.Red)
+            {
+                return;
+            }
+            if (checkBoxLandingY.Checked && integerTextBoxLandingY.ForeColor == Color.Red)
+            {
+                return;
+            }
+            
             try
             {
                 LeapFormat leapFormat = new LeapFormat(textBoxLeapInput.Text);
+                float startY = float.Parse(textBoxStartY.Text);
+                if (checkBoxLandingY.Checked)
+                {
+                    int endFloorY = int.Parse(integerTextBoxLandingY.Text);
+                    var leapFrameList = LeapSimulation.GetFrameYList(startY, leapFormat, endFloorY);
+                    richTextBoxResult.Clear();
+                    for (int i = 0; i < leapFrameList.Count; i++)
+                    {
+                        richTextBoxResult.SelectionColor = Color.LightGray;
+                        richTextBoxResult.AppendText($"{i,3}|");
+                        richTextBoxResult.SelectionColor = Color.Black;
+                        richTextBoxResult.AppendText($" {((double)leapFrameList[i]).ToString("R")}\n");
+                    }
+                }
+                else
+                {
+
+                }
             }
             catch (FormatException ex)
             {
