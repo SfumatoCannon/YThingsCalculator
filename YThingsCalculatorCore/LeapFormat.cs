@@ -15,7 +15,7 @@ namespace YThingsCalculatorCore
             JumpDetailList.Clear();
             JumpPauseList.Clear();
             JumpPauseList.Add(1);
-            string regexString = @"(?<=\()\d+(?:\+\d+)+(?=\))|\d+";
+            string regexString = @"(?<=\()\w+(?:\+\w+)+(?=\))|\w+";
             string[] regexMatches = System.Text.RegularExpressions.Regex.Matches(leapFormatString, regexString)
                 .Cast<System.Text.RegularExpressions.Match>()
                 .Select(m => m.Value)
