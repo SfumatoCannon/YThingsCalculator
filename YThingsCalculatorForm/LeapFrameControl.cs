@@ -28,10 +28,10 @@ namespace YThingsCalculatorForm
                 return;
             }
             try
-            {                
+            {
                 LeapFormat leapFormat = new LeapFormat(textBoxLeapInput.Text);
                 textBoxLeapInput.ForeColor = Color.Black;
-                float startY = float.Parse(textBoxStartY.Text); 
+                float startY = float.Parse(textBoxStartY.Text);
                 int startYSnap = (int)(startY / 608) * 608;
                 if (checkBoxLandingY.Checked)
                 {
@@ -43,7 +43,7 @@ namespace YThingsCalculatorForm
                         $"{leapFormat.GetLeapExpression()}" +
                         $" -> {leapFrameList[leapFrameList.Count - 1].ToString("R")}\n");
                     richTextBoxResult.SelectionColor = Color.Gray;
-                    richTextBoxResult.AppendText($"{leapFrameList.Count, 3} frames total\n");
+                    richTextBoxResult.AppendText($"{leapFrameList.Count,3} frames total\n");
                     for (int i = 0; i < leapFrameList.Count; i++)
                     {
                         richTextBoxResult.SelectionColor = Color.Gray;
@@ -92,10 +92,27 @@ namespace YThingsCalculatorForm
                 integerTextBoxLandingY.Enabled = false;
                 integerTextBoxLandingY.Text = "";
             }
+            showResult();
         }
 
         private void textBoxLeapInput_TextChanged(object sender, EventArgs e)
         {
+            showResult();
+        }
+
+        private void textBoxStartY_TextChanged(object sender, EventArgs e)
+        {
+            showResult();
+        }
+
+        private void integerTextBoxLandingY_TextChanged(object sender, EventArgs e)
+        {
+            showResult();
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            richTextBoxResult.Clear();
             showResult();
         }
     }
